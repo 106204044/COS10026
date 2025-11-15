@@ -1,0 +1,1262 @@
+/*
+* TechHive Company
+* Author: Nguyen Duy Anh - Tran Anh Tuan
+* Purpose: Main stylesheet for TechHive corporate website
+* Version: 2.0
+* Date: October/2025
+*/
+
+/* ===================== CSS RESET & VARIABLES ================== */
+/* CSS Custom Properties for consistent theming across the website */
+:root {
+    --primary-color: #2c3e50;     /* Dark blue-gray for headings and primary text */
+    --secondary-color: #3498db;   /* Bright blue for accents and interactive elements */
+    --accent-color: #e74c3c;      /* Red for required fields and alerts */
+    --text-color: #333;           /* Dark gray for body text */
+    --light-bg: #f8f9fa;          /* Light gray for backgrounds */
+    --white: #ffffff;             /* Pure white for cards and forms */
+    --border-radius: 8px;         /* Consistent rounded corners */
+    --box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* Soft shadow for depth */
+    --transition: all 0.3s ease;  /* Smooth transitions for interactive elements */
+}
+
+/* Universal selector resets margins and paddings for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* Include padding and border in element width */
+}
+
+/* ===================== BASE STYLES ================== */
+/* Flexbox layout pushes footer to bottom, min-height ensures full viewport coverage */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;    /* WCAG recommended line-height for readability */
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    min-height: 100vh;   /* Full viewport height */
+    display: flex;        /* Flexbox for sticky footer */
+    flex-direction: column;
+}
+
+/* ===================== LAYOUT & CONTAINER ================== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    flex: 1;
+    padding: 20px 1rem;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 30px 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        padding: 40px 6rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    main {
+        padding: 40px 12rem;
+    }
+}
+
+/* ===================== TYPOGRAPHY ================== */
+/* All headings use primary color for consistency */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Heading styles with responsive font sizes using media queries */
+h1 {
+    font-size: 1.75rem;  /* Mobile size */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.5rem;  /* Mobile size */
+    margin-top: 2rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;  /* Mobile size */
+    color: var(--secondary-color);
+}
+
+h4 {
+    font-size: 1.1rem;  /* Mobile size */
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+
+/* Larger font sizes for tablets and desktops */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+    h4 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    h4 {
+        font-size: 1.25rem;
+    }
+}
+
+/* ===================== HEADER & NAVIGATION ================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: var(--box-shadow);
+}
+
+/* Flexbox navigation allows flexible wrapping on mobile devices */
+nav {
+    display: flex;              /* Flexbox for layout */
+    align-items: center;        /* Vertically center items */
+    justify-content: space-between;  /* Space between logo and menu */
+    padding: 1rem;
+    min-height: 60px;
+    margin: 0.25rem;
+    flex-wrap: wrap;            /* Allows wrapping on small screens */
+    gap: 1rem;                  /* Space between flex items */
+}
+
+@media (min-width: 768px) {
+    nav {
+        padding: 1.5rem 2rem;
+        min-height: 80px;
+        flex-wrap: nowrap;
+    }
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand svg {
+    height: 40px;
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .brand svg {
+        height: 55px;
+    }
+}
+
+.company-name {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+    .company-name {
+        font-size: 1.5rem;
+    }
+}
+
+.company-name:hover {
+    opacity: 0.9;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        gap: 1.5rem;
+        width: auto;
+        justify-content: flex-end;
+    }
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    position: relative;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    nav a {
+        padding: 10px 20px;
+    }
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+nav a[aria-current="page"] {
+    background-color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* ===================== INDEX PAGE STYLES ================== */
+/* Index page displays background graphic as per assignment requirements */
+/* Using CSS pattern as background graphic - can be replaced with image URL */
+body.index-page {
+    background: 
+        linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.05) 10px, rgba(255,255,255,.05) 20px);
+    color: var(--white);
+    /* Alternative: background-image: url('../images/hero-bg.jpg'); */
+}
+
+.hero-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        padding: 5rem 2rem;
+    }
+}
+
+.hero-section h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    background: none;
+    -webkit-text-fill-color: var(--white);
+    color: var(--white);
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-section p {
+        margin-bottom: 3rem;
+    }
+}
+
+.hero-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+@media (min-width: 640px) {
+    .hero-features {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+    .feature {
+        padding: 2rem;
+    }
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.feature h2 {
+    color: var(--white);
+    border: none;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.feature p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    padding: 15px 35px;
+    background: var(--accent-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--white);
+}
+
+.cta-button.secondary:hover {
+    background: var(--white);
+    color: #667eea;
+}
+
+/* ===================== JOBS PAGE STYLES ================== */
+/* h1 on jobs page uses shorthand font property as per assignment requirements */
+#job-listings h1 {
+    font: 700 1.75rem/1.2 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 768px) {
+    #job-listings h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #job-listings h1 {
+        font-size: 2.5rem;
+    }
+}
+
+#notice {
+    text-align: center;
+    font-style: italic;
+}
+
+#job-listings header {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    border-color: #7f8c8d;
+    border-style: double;
+    text-align: center;
+}
+
+#job-listings h2 {
+    text-align: center;
+}
+
+.job-posting {
+    background: var(--white);
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-left: 3px solid var(--secondary-color);
+    transition: var(--transition);
+}
+
+@media (min-width: 640px) {
+    .job-posting {
+        padding: 1.5rem;
+        border-left-width: 4px;
+    }
+}
+
+@media (min-width: 768px) {
+    .job-posting {
+        margin: 2.5rem 0;
+        padding: 1.5rem 2.5rem;
+        border-left-width: 5px;
+    }
+}
+
+.job-posting:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.job-reference {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    background: var(--light-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.job-overview, .job-details, .key-responsibilities, .qualifications {
+    margin: 1.5rem 0;
+}
+
+.job-details dl {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+}
+
+@media (min-width: 640px) {
+    .job-details dl {
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+    }
+}
+
+.job-details dt {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    .job-details dt {
+        margin: 1rem;
+    }
+}
+
+.job-details dd {
+    color: #525252;
+    margin: 0.5rem;
+}
+
+@media (min-width: 640px) {
+    .job-details dd {
+        margin: 1rem;
+    }
+}
+
+.key-responsibilities ul,
+.essential-skills ul,
+.preferable-skills ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.key-responsibilities li,
+.essential-skills li,
+.preferable-skills li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.essential-skills, .preferable-skills {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+    .essential-skills, .preferable-skills {
+        padding: 1.5rem;
+    }
+}
+
+/* ===================== ASIDE STYLES ================== */
+/* Aside floats to the right at 25% width on larger screens for jobs.html */
+aside {
+    padding: 1.25rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    background-color: #ecf0f1;
+    box-shadow: var(--box-shadow);
+    margin: 1rem 0;
+}
+
+/* On desktop, aside floats right at 25% width as per assignment requirements */
+@media (min-width: 768px) {
+    aside {
+        width: 25%;
+        float: right;
+        margin: 0 0 2rem 2rem;
+        padding: 2rem;
+    }
+}
+
+aside h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+aside ul {
+    margin: 1rem 0 1rem 1.5rem;
+}
+
+aside li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* ===================== IMPROVED COLLECTIVE VISION STYLES ================== */
+/* Special styling for career goals / collective vision aside */
+#career-goals {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border: 3px solid var(--secondary-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    float: none;  /* Override default aside float */
+    width: 100%;  /* Full width on mobile */
+    max-width: 800px;  /* Limit maximum width */
+    margin: 2rem auto;  /* Center horizontally with auto margins */
+}
+
+@media (min-width: 768px) {
+    #career-goals {
+        padding: 2rem;
+        max-width: 900px;  /* Wider on tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    #career-goals {
+        max-width: 1000px;  /* Even wider on desktops */
+        padding: 2.5rem;
+    }
+}
+
+#career-goals h2 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.75rem;
+    text-align: center;  /* Center the heading */
+}
+
+@media (min-width: 768px) {
+    #career-goals h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #career-goals h2 {
+        font-size: 1.8rem;
+    }
+}
+
+#career-goals p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;  /* Center the paragraph */
+}
+
+@media (min-width: 768px) {
+    #career-goals p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #career-goals p {
+        font-size: 1.05rem;
+    }
+}
+
+#career-goals ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;  /* Single column on mobile */
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    #career-goals ul {
+        grid-template-columns: 1fr 1fr;  /* Two columns on tablets and up */
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #career-goals ul {
+        gap: 1.5rem;
+    }
+}
+
+#career-goals li {
+    padding: 1rem;
+    margin-bottom: 0;  /* Remove margin since grid gap handles spacing */
+    background: white;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-color);
+    transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    #career-goals li {
+        padding: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #career-goals li {
+        padding: 1.5rem;
+    }
+}
+
+#career-goals li:hover {
+    transform: translateY(-3px);  /* Lift up instead of slide right */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    border-left-width: 5px;  /* Slightly thicker border on hover */
+}
+
+#career-goals li strong {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    #career-goals li strong {
+        font-size: 1.05rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    #career-goals li strong {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Text content within list items */
+#career-goals li {
+    line-height: 1.6;
+}
+
+#career-goals li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===================== ABOUT PAGE STYLES ================== */
+#group-info {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    #group-info {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.academic-info {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+    .academic-info {
+        padding: 1.5rem;
+    }
+}
+
+figure#group-photo {
+    float: none;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    figure#group-photo {
+        float: right;
+        margin: 0 0 2rem 2rem;
+        max-width: 400px;
+    }
+}
+
+figure#group-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+    color: #6b6b6b;
+    font-size: 0.9rem;
+}
+
+dl {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+@media (min-width: 768px) {
+    dl {
+        padding: 2rem;
+    }
+}
+
+dt {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+    dt {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    dt {
+        margin-top: 1.5rem;
+    }
+}
+
+dd {
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    color: #525252;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    dd {
+        margin-left: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* ===================== TABLE STYLES ================== */
+/* Table on about page with merged cells (rowspan) and hover effects */
+/* Horizontal scrolling on mobile prevents layout breaking */
+table {
+    width: 100%;
+    border-collapse: collapse;  /* Removes spacing between cells */
+    margin: 1.5rem auto;        /* Centers table with vertical spacing */
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: block;             /* Allows horizontal scrolling */
+    overflow-x: auto;           /* Scrolls horizontally on small screens */
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+}
+
+@media (min-width: 768px) {
+    table {
+        margin: 2.5rem auto;
+        display: table;
+        overflow-x: visible;
+    }
+}
+
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid #e1e1e1;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    th, td {
+        padding: 15px 20px;
+        font-size: 1rem;
+        white-space: normal;
+    }
+}
+
+th {
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: var(--white);
+    font-weight: 600;
+    text-align: center;
+}
+
+td {
+    background-color: var(--light-bg);
+    transition: var(--transition);
+}
+
+td:hover {
+    background-color: #e3f2fd;
+}
+
+tbody th {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    color: var(--white);
+    text-align: left;
+}
+
+/* ===================== GRID LAYOUTS ================== */
+.skills-grid,
+.demographic-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+    .skills-grid,
+    .demographic-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.skill-category,
+.demographic-info {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-top: 3px solid var(--secondary-color);
+    transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+    .skill-category,
+    .demographic-info {
+        padding: 2rem;
+        border-top-width: 4px;
+    }
+}
+
+.skill-category:hover,
+.demographic-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* ===================== FORM STYLES ================== */
+/* Form uses flexbox with column direction for vertical stacking */
+/* Display factor: Flexbox as per assignment requirements */
+form#job-application {
+    display: flex;              /* Flexbox layout as required */
+    flex-direction: column;     /* Stack form elements vertically */
+    gap: 1.5rem;                /* Space between fieldsets */
+    max-width: 800px;           /* Limit form width for readability */
+    margin: 0 auto;             /* Center form horizontally */
+    padding: 1rem;              /* Inner spacing */
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+@media (min-width: 640px) {
+    form#job-application {
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    form#job-application {
+        padding: 2.5rem;
+        gap: 2.5rem;
+    }
+}
+
+fieldset {
+    border: 2px solid #e1e1e1;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    background: var(--light-bg);
+}
+
+@media (min-width: 768px) {
+    fieldset {
+        padding: 2rem;
+    }
+}
+
+legend {
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 0 10px;
+    font-size: 1.1rem;
+}
+
+@media (min-width: 768px) {
+    legend {
+        padding: 0 15px;
+        font-size: 1.3rem;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--secondary-color);
+}
+
+@media (min-width: 768px) {
+    .form-group {
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        border-left-width: 4px;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e1e1e1;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+    font-family: inherit;
+}
+
+@media (min-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #767676;
+    opacity: 1;
+}
+
+.radio-group,
+.checkbox-group {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.radio-options,
+.checkbox-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .radio-options,
+    .checkbox-options {
+        gap: 1.5rem;
+    }
+}
+
+.radio-options label,
+.checkbox-options label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .radio-options label,
+    .checkbox-options label {
+        font-size: 1rem;
+    }
+}
+
+.radio-options input[type="radio"],
+.checkbox-options input[type="checkbox"] {
+    margin-right: 0.5rem;
+    transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+    .radio-options input[type="radio"],
+    .checkbox-options input[type="checkbox"] {
+        margin-right: 0.75rem;
+        transform: scale(1.2);
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .form-actions {
+        gap: 1.5rem;
+    }
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 120px;
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .btn-primary,
+    .btn-secondary {
+        width: auto;
+        min-width: 140px;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn-primary,
+    .btn-secondary {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+    transform: translateY(-3px);
+}
+
+.required {
+    color: var(--accent-color);
+}
+
+input:invalid {
+    border-color: var(--accent-color);
+}
+
+input:valid {
+    border-color: #27ae60;
+}
+
+small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #595959;
+    font-size: 0.875rem;
+}
+
+/* ===================== FOOTER STYLES ================== */
+/* Footer clears floats and spans full width as per assignment requirements */
+footer {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    color: var(--white);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    clear: both; /* Clears the floating aside */
+    width: 100%; /* Ensures full width coverage */
+}
+
+footer p, footer address {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    footer p, footer address {
+        font-size: 0.9rem;
+    }
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* ===================== RESPONSIVE DESIGN ================== */
+/* Mobile-first responsive design implemented throughout with inline media queries */
+/* Breakpoints used: 480px (small phones), 640px (large phones), 768px (tablets), 1024px (small laptops), 1280px (desktops) */
+/* All components are optimized for mobile devices and scale up for larger screens */
+/* Fluid layout ensures page reflows on resize as per assignment requirements */
+/* Media queries use min-width for progressive enhancement approach */
