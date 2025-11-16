@@ -41,25 +41,6 @@ include 'nav.inc';
             <a href="apply.php" class="cta-button">Get Started</a>
             <a href="about.php" class="cta-button secondary">Learn More</a>
         </div>
-        
-        <!-- Additional content section -->
-        <section class="company-values">
-            <h2>Why Choose TechHive?</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <h3>Innovation First</h3>
-                    <p>We embrace cutting-edge technologies and encourage creative problem-solving.</p>
-                </div>
-                <div class="value-card">
-                    <h3>Career Growth</h3>
-                    <p>Continuous learning opportunities and clear career progression paths.</p>
-                </div>
-                <div class="value-card">
-                    <h3>Work-Life Balance</h3>
-                    <p>Flexible working arrangements and comprehensive wellness programs.</p>
-                </div>
-            </div>
-        </section>
     </section>
 </main>
 

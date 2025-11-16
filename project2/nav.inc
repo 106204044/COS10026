@@ -12,7 +12,7 @@
       <a href="mailto:info@techhive.com.au" class="company-name">TechHive</a>
     </div>
     <ul>
-      <li><a href="./index.php" aria-current="page">Home</a></li>
+      <li><a href="./index.php">Home</a></li>
       <li><a href="./jobs.php">Careers</a></li>
       <li><a href="./apply.php">Apply Now</a></li>
       <li><a href="./about.php">About Us</a></li>
